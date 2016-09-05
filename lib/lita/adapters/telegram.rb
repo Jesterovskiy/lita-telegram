@@ -41,8 +41,8 @@ module Lita
       def send_messages(target, messages)
         messages.each do |message|
           client.api.sendChatAction(chat_id: target.room.to_i, action: 'typing')
-          sleep 1
-          client.api.sendMessage(chat_id: target.room.to_i, text: message)
+          sleep 2
+          client.api.sendMessage(chat_id: target.room.to_i, text: message, parse_mode: 'Markdown')
         end
       end
 
