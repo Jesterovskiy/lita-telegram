@@ -10,7 +10,7 @@ module Lita
         end
 
         def send_keyboard(target, message, keyboard)
-          markup = ::Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, one_time_keyboard: true)
+          markup = ::Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: keyboard, resize_keyboard: true, one_time_keyboard: true)
           client.api.sendMessage(chat_id: target.room.to_i, text: message, reply_markup: markup, parse_mode: 'Markdown', disable_web_page_preview: true)
         end
       end
